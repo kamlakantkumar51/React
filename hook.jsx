@@ -107,3 +107,109 @@ function App() {
 }
 
 export default App;
+
+
+
+
+//toggle hook state 
+// import { useState } from "react";
+// function App() {
+//     const [show, setShow] = useState(true);
+//     return (
+//         <div>
+//             {
+//                 show
+//                 ? <h1>kamlakant</h1>
+//                 : <h1>krishnakant</h1>
+//             }
+//             <button onClick={() => setShow(!show)}>
+//                 Toggle
+//             </button>
+//         </div>
+//     );
+// }
+
+
+//forms + state 
+// import { useState} from "react";
+// function App(){
+//   const[name,setname] = useState("");
+//   return(
+//     <div>
+//       <input 
+
+//       type="text"
+//       onChange={(e)=>e.target.value}
+//       />
+//       <h1>{name}</h1>
+//     </div>
+//   )
+// }
+
+
+//use-effect hook
+//it is used for api call ,data fetching and important react utilities..
+
+// import { useEffect } from "react";
+// function App(){
+//   useEffect(()=>{
+//     console.log("component loaded");
+//   },[]);
+//   return (
+//     <h1>Hello</h1>
+//   );
+// }
+
+//understanding of dependency array
+// import { useState, useEffect } from "react";
+// function App() {
+//     const [count, setCount] = useState(0);
+//     useEffect(() => {
+//         console.log("Count Changed");
+//     }, [count]);
+//     return (
+//         <div>
+//             <h1>{count}</h1>
+//             <button onClick={() => setCount(count + 1)}>
+//                 Increase
+//             </button>
+//         </div>
+//     );
+// }
+
+
+
+import { useEffect,useState } from "react";
+function App(){
+  const[users,setUsers] = useState([]);
+  useEffect(()=>{
+    async function getUsers(){
+      let response = await fetch(
+        "https://jsonplaceholder.typing.com"
+      );
+      let data = await response.json();
+      setUsers(data);
+    }
+    getUsers();
+  },[]);
+  return(
+    <div>
+      {
+        users.map((user)=>(
+          <h2 key={user.id}>
+            {user.name}
+          </h2>
+        ))
+      }
+    </div>
+  );
+}
+
+
+//controlled components:-forms managed using state
+//this is standard react way 
+<input type
+     value={name}
+     onChange={(e)=>setName(e.target.value)}
+/>
+export default App;

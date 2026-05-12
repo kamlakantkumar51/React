@@ -88,4 +88,22 @@ function App(){
   )
 }
 
+
+import { useState } from "react";
+function App() {
+    const [show, setShow] = useState(true);
+    return (
+        <div>
+            {
+                show
+                ? <h1>kamlakant</h1>
+                : <h1>krishnakant</h1>
+            }
+            <button onClick={() => setShow(!show)}>
+                Toggle
+            </button>
+        </div>
+    );
+}
+
 export default App;

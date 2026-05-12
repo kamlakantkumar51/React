@@ -29,6 +29,15 @@ export default App;
 
 ### state is data that can change dynamically
 
+
+## understanding dependency array
+### 1.Empty array:-runs only once componentDidMount ....[]...
+### 2.with dependency:-runs whenever count changes [count]
+
+
+#### fetch api in react;-super important
+
+
 ### useState hook in react :-used for managing state
 ## eg = 
 import {useState} from "react";
